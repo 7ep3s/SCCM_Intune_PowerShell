@@ -1,0 +1,2 @@
+type: file
+path: "C:\Windows\System32\Tasks\Stale User Profile Remover"
