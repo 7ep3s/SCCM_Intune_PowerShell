@@ -1,5 +1,5 @@
 <#pulls LAPS password for specified device and opens a powershell session
-requires DeviceLocalCredential.Read.All, 	Device.Read.All
+requires DeviceLocalCredential.Read.All, Device.Read.All
 #>
 param($ComputerName,$AdminUser)
 
