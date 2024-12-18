@@ -37,7 +37,7 @@ param($ComputerName)
 Function New-EntraDevicePSSession {
 param($ComputerName)
 
-    $username = $Computername + "\$Adminuser"
+    $username = $ComputerName + "\$Adminuser"
     $password = Get-EntraDeviceLapsPassword -ComputerName $ComputerName | ConvertTo-SecureString -AsPlainText -Force -ErrorAction SilentlyContinue
 
     if ($null -ne $password) {
@@ -53,7 +53,7 @@ $session = New-EntraDevicePSSession -ComputerName $ComputerName
 
 if ($null -ne $session) {
 
-    enter-pssession $session
+    Enter-PSSession $session
 
 }
 
