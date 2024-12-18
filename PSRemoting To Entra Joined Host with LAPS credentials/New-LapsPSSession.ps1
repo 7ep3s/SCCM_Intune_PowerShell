@@ -48,7 +48,10 @@ param($ComputerName)
 
 $session = New-EntraDevicePSSession -ComputerName $ComputerName
 
-$null -ne $session
+if ($null -ne $session) {
 
-enter-pssession $session
-#run remove-pssession $session when you are done :)
+    enter-pssession $session
+
+}
+
+#don't forget to remove the pssession $session when you are done :)
