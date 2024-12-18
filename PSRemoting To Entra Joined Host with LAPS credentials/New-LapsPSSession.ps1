@@ -43,6 +43,7 @@ param($ComputerName)
 
         return new-pssession -ComputerName $ComputerName -Credential $credObject
     }
+    return $null
 }
 
 $session = New-EntraDevicePSSession -ComputerName $ComputerName
