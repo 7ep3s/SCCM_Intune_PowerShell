@@ -4,7 +4,7 @@ requires DeviceLocalCredential.Read.All, Device.Read.All
 param($ComputerName,$AdminUser)
 
 #you might also need to change your WSMan Trusted Hosts
-if ((get-item WSMan:\localhost\Client\TrustedHosts).value -ne "*") {set-item WSMan:\localhost\Client\TrustedHosts "<placeholder>"}
+if ((get-item WSMan:\localhost\Client\TrustedHosts).value -ne "<placeholder>") {set-item WSMan:\localhost\Client\TrustedHosts "<placeholder>"}
 
 Connect-MgGraph -TenantID "<placeholder>" -ClientID "<placeholder>" #use your auth method of choice
 
