@@ -57,4 +57,4 @@ if ($null -ne $session) {
 
 }
 
-#don't forget to remove the pssession $session when you are done :)
+#don't forget to remove the pssession when you are done :)
