@@ -5,6 +5,8 @@ param($ComputerName,$AdminUser)
 
 Connect-MgGraph -TenantID "<placeholder>" -ClientID "<placeholder>" #use your auth method of choice
 
+$errorReason = ""
+
 function Get-EntraDevice{
 param($ComputerName)
 
@@ -12,6 +14,7 @@ param($ComputerName)
 
     $result = Invoke-MgGraphRequest -Uri $URI -Method GET
     if ($result.value){return $result.value}
+    $errorReason = "Unable to find Entra Device"
     return $null
 }
  
@@ -29,6 +32,7 @@ param($ComputerName)
             return $decoded
         }
     }
+    $errorReason = "Unable to find Entra Device LAPS Credentials"
     return $null
 }
 
@@ -43,6 +47,7 @@ param($ComputerName)
 
         return new-pssession -ComputerName $ComputerName -Credential $credObject
     }
+    $errorReason = "Unable to create PS Session"
     return $null
 }
 
@@ -52,6 +57,6 @@ if ($null -ne $session) {
 
     enter-pssession $session
 
-}
+} else {Write-Output $errorReason}
 
 #don't forget to remove the pssession $session when you are done :)
