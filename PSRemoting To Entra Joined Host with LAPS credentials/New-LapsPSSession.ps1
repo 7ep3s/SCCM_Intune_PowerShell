@@ -5,7 +5,7 @@ param($ComputerName,$AdminUser)
 
 Connect-MgGraph -TenantID "<placeholder>" -ClientID "<placeholder>" #use your auth method of choice
 
-function Get-EntraDevice{
+function Get-EntraDevice {
 param($ComputerName)
 
     $URI = "https://graph.microsoft.com/beta/devices?filter=displayName eq '$ComputerName'"
@@ -16,7 +16,7 @@ param($ComputerName)
     Exit 1
 }
  
-function Get-EntraDeviceLapsPassword{
+function Get-EntraDeviceLapsPassword {
 param($ComputerName)
 
     $device = Get-EntraDevice -ComputerName $ComputerName
@@ -34,7 +34,7 @@ param($ComputerName)
     Exit 2
 }
 
-Function New-EntraDevicePSSession{
+Function New-EntraDevicePSSession {
 param($ComputerName)
 
     $username = $Computername + "\$Adminuser"
