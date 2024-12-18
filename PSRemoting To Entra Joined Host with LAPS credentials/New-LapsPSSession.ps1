@@ -43,7 +43,7 @@ param($ComputerName)
     if ($null -ne $password) {
         [pscredential]$credObject = New-Object System.Management.Automation.PSCredential ($userName, $password)
 
-        return new-pssession -ComputerName $ComputerName -Credential $credObject
+        return New-PSSession -ComputerName $ComputerName -Credential $credObject
     }
     Write-Host "Unable to create PS Session"
     Exit 3
