@@ -42,14 +42,14 @@ param($ComputerName)
     Exit 3
 }
 
-Function New-EntraDevicePSSession{
+unction New-EntraDevicePSSession{
 param($ComputerName)
 
     Try {
         $username = $Computername + "\$Adminuser"
         [pscredential]$credObject = New-Object System.Management.Automation.PSCredential ($userName,
-                                                                                              $(Get-EntraDeviceLapsPassword -ComputerName $ComputerName `
-                                                                                              | ConvertTo-SecureString -AsPlainText -Force -ErrorAction SilentlyContinue))
+                                                                                          $(Get-EntraDeviceLapsPassword -ComputerName $ComputerName `
+                                                                                          | ConvertTo-SecureString -AsPlainText -Force -ErrorAction SilentlyContinue))
     
         $session =  new-pssession -ComputerName $ComputerName -Credential $credObject -SessionOption (New-PSSessionOption -IdleTimeout 60000)
         Remove-Variable credObject
