@@ -42,7 +42,7 @@ param($ComputerName)
     Exit 3
 }
 
-unction New-EntraDevicePSSession{
+function New-EntraDevicePSSession{
 param($ComputerName)
 
     Try {
